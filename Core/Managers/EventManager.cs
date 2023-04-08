@@ -35,7 +35,7 @@ namespace ExampleBot.Core.Managers
         {
             try
             {
-                await _lavaNode.ConnectAsync();
+                await _lavaNode.InitializeAsync(); // Use InitializeAsync, if you use ConnectAsync the queue will not work properly. Use ConnectAsync only if you know what you are doing.
             }
             catch (Exception ex)
             {
@@ -62,12 +62,5 @@ namespace ExampleBot.Core.Managers
                 if (result.Error == CommandError.UnknownCommand) return; // Check for unknown Command
             }
         }
-        public List<LavalinkTrack?> GetQueue(ulong guildid) =>
-        !Queues.Select(x => x.Key).Contains(guildid)
-            ? new List<LavalinkTrack>
-            {
-                Capacity = 0
-            }
-            : Queues.FirstOrDefault(x => x.Key == guildid).Value;
     }
 }

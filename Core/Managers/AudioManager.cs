@@ -97,7 +97,7 @@ namespace ExampleBot.Core.Managers
             }
             catch (Exception ex)
             {
-                return $"Error:";
+                return $"Error: {ex.Message}";
             }
         }
         public static async Task<string> SkipAsync(IGuild guild)
@@ -204,7 +204,7 @@ namespace ExampleBot.Core.Managers
             player.Queue.Remove(player.Queue.ElementAt(trackNum - 1));
             return "Song was removed from queue.";
         }
-        private async Task OnTrackEndAsync(TrackEndEventArgs args)
+        /*private async Task OnTrackEndAsync(TrackEndEventArgs args)
         {
             if (args.Reason is TrackEndReason.Stopped or TrackEndReason.CleanUp or TrackEndReason.Replaced) return;
             var queue = _eventManager.GetQueue(args.Player.GuildId);
@@ -217,6 +217,6 @@ namespace ExampleBot.Core.Managers
                 if (nextTrack is null) return;
                 await args.Player.PlayAsync(nextTrack);
             }
-        }
+        }*/
     }
 }
