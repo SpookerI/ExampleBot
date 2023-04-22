@@ -1,5 +1,5 @@
 # ExampleBot
-Example Music Bot on Discord.NET and Lavalink4NET
+Example Music Bot on Discord.NET and Lavalink4NET<br />
 Commands:<br />
 join - Joins the channel.<br />
 play - Play music.<br />
